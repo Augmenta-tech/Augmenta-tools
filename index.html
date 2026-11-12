@@ -5,51 +5,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#0b0b0d">
 <meta name="description" content="Utilities to use with your existing Augmenta installation.">
-<link rel="icon" type="image/png" sizes="32x32" href="https://augmenta.tech/pleiades/releases/augmenta-favicon-32.png">
+<link rel="icon" type="image/png" sizes="32x32" href="augmenta-tools-assets/augmenta-favicon-32.png">
 <title>Augmenta Tools — Developer tools</title>
-<style>
-:root{color-scheme:dark;--bg:#0b0b0d;--panel:#131318;--line:rgba(255,255,255,.09);--text:#f3f3f5;--muted:#9c9ca8;--accent:#b35cee}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;min-height:100vh;background:radial-gradient(circle at 50% -5%,rgba(179,92,238,.16),transparent 38rem),var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
-a{color:inherit;text-decoration:none}a:focus-visible{outline:2px solid #d9b2ff;outline-offset:4px}
-.shell{max-width:1060px;width:calc(100% - 52px);margin:0 auto}
-.nav{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:23px 0;border-bottom:1px solid var(--line)}
-.nav-brand{display:flex;align-items:center;gap:12px;font-size:12px;font-weight:750;letter-spacing:.13em}
-.nav-brand img{width:34px;height:34px;object-fit:contain;border-radius:50%}
-.nav-brand b{color:#7c608f;margin:0 4px}.nav-link{font-size:12px;color:#a8a4b2}
-.hero{padding:62px 0 47px;max-width:850px}
-.hero-logo{width:84px;height:84px;border-radius:50%;display:block;object-fit:contain;margin-bottom:23px;box-shadow:0 14px 34px rgba(0,0,0,.36),0 0 24px rgba(179,92,238,.18)}
-.eyebrow{font-size:12px;color:#c89af5;font-weight:700;letter-spacing:.12em;margin:0 0 15px}
-h1{font-size:clamp(44px,6.8vw,76px);line-height:1.03;letter-spacing:-.055em;font-weight:680;margin:0}
-h1 em{font-style:normal;color:#c38af2}
-.intro{font-size:18px;max-width:610px;line-height:1.6;color:var(--muted);margin:24px 0 0}
-.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
-.tool{display:block;min-width:0;background:linear-gradient(180deg,rgba(255,255,255,.018),transparent),var(--panel);border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:0 24px 70px rgba(0,0,0,.23);transition:transform .2s,border-color .2s}
-a.tool:hover{transform:translateY(-4px);border-color:rgba(179,92,238,.65)}
-.art{height:189px;overflow:hidden;border-bottom:1px solid var(--line);background:radial-gradient(circle at 50% 40%,rgba(160,98,230,.15),transparent 60%),#101015}
-.art svg{width:100%;height:100%;display:block}
-.tool-content{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;padding:23px 25px 27px;min-height:152px}
-.type{font-size:11px;font-weight:730;color:#bd8edc;letter-spacing:.1em;margin:0 0 9px}
-h2{font-weight:660;letter-spacing:-.035em;font-size:24px;line-height:1.2;margin:0}
-.summary{margin:10px 0 0;font-size:13px;line-height:1.5;color:var(--muted)}
-.arrow{color:#d4a4f7;font-size:26px;line-height:1;flex-shrink:0}
-.inactive{opacity:.7}.soon{font-size:10px;color:#d1bddb;border:1px solid #56445f;padding:7px 10px;border-radius:99px;white-space:nowrap;font-weight:700;letter-spacing:.05em}
-footer{margin-top:55px;padding:24px 0 32px;border-top:1px solid var(--line);display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:20px;color:#777381;font-size:12px}
-footer .tagline{color:#92909c;text-align:center}footer .website{text-align:right}footer a:hover{color:#c89af5}
-@media(max-width:650px){.shell{width:calc(100% - 32px)}.nav{padding:17px 0}.nav-link{font-size:11px}.hero{padding:40px 0 37px}.hero-logo{width:68px;height:68px}h1{font-size:clamp(42px,9.2vw,62px)}.intro{font-size:16px}.grid{grid-template-columns:1fr}.art{height:174px}.tool-content{padding:21px;min-height:136px}h2{font-size:22px}footer{grid-template-columns:1fr auto;row-gap:10px}footer .tagline{grid-column:1/-1;grid-row:2;text-align:left;font-size:11px}footer .website{grid-column:2;grid-row:1}}
-@media(prefers-reduced-motion:reduce){.tool{transition:none}html{scroll-behavior:auto}}
-</style>
+<link rel="stylesheet" href="augmenta-tools-assets/styles.css">
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to tools</a>
 <div class="shell">
 <header class="nav">
-<a class="nav-brand" href="https://augmenta.tech/"><img src="https://augmenta.tech/pleiades/releases/augmenta-logo-96.png" alt="Augmenta logo"><span>AUGMENTA <b>/</b> TOOLS</span></a>
+<a class="nav-brand" href="https://augmenta.tech/"><img src="augmenta-tools-assets/augmenta-logo-96.png" alt=""><span>AUGMENTA <b aria-hidden="true">/</b> TOOLS</span></a>
 <a class="nav-link" href="https://augmenta.tech/">Augmenta website ↗</a>
 </header>
-<main>
+<main id="main">
 <section class="hero">
-<img class="hero-logo" src="https://augmenta.tech/pleiades/releases/augmenta-logo-96.png" alt="Augmenta logo" width="84" height="84">
+<img class="hero-logo" src="augmenta-tools-assets/augmenta-logo-96.png" alt="" width="84" height="84">
 <p class="eyebrow">Augmenta · Developer tools</p>
 <h1>Tools for<br><em>interactive infrastructure.</em></h1>
 <p class="intro">Utilities to use with your existing Augmenta installation.</p>
@@ -61,15 +30,15 @@ footer .tagline{color:#92909c;text-align:center}footer .website{text-align:right
 </a>
 <a class="tool" href="https://augmenta-tech.github.io/Augmenta-ThreeJS-example/">
 <div class="art"><svg viewBox="0 0 500 220" role="img" aria-label="Web receiver data illustration"><g stroke="#77579b" stroke-width="1" opacity=".35" fill="none"><circle cx="250" cy="110" r="40"/><circle cx="250" cy="110" r="75"/><circle cx="250" cy="110" r="105"/><path d="M100 110h300M250 0v220"/></g><g stroke="#b37bfb" fill="#a96bee"><circle cx="250" cy="110" r="10"/><circle cx="195" cy="80" r="6"/><circle cx="307" cy="142" r="6"/><circle cx="276" cy="46" r="6"/><circle cx="160" cy="155" r="6"/></g><path d="M195 80l55 30 57 32M250 110l26-64M250 110l-90 45" stroke="#bb89fc" stroke-width="2" stroke-dasharray="5 6" fill="none"/></svg></div>
-<div class="tool-content"><div><p class="type">WEB / LIVE DATA</p><h2>Augmenta web receiver</h2><p class="summary">Receive Augmenta data in your browser.</p></div><span class="arrow" aria-hidden="true">↗</span></div>
+<div class="tool-content"><div><p class="type">WEB / LIVE DATA</p><h2>Augmenta Web Receiver</h2><p class="summary">Receive Augmenta data in your browser.</p></div><span class="arrow" aria-hidden="true">↗</span></div>
 </a>
 <a class="tool" href="https://augmenta-tech.github.io/Augmenta-ThreeJS-example/">
 <div class="art"><svg viewBox="0 0 500 220" role="img" aria-label="Three-dimensional integration example"><g stroke="#6b5ba0" stroke-width="1" opacity=".4" fill="none"><path d="M30 214L250 64 470 214M80 214L250 95 420 214M140 214l110-80 110 80M190 214l60-43 60 43M70 181h360M125 148h250"/></g><g fill="none" stroke-width="3" stroke-linejoin="round"><path d="M250 27l80 45v90l-80 45-80-45V72z" stroke="#bd81ec"/><path d="M250 27v90l80-45M250 117l-80-45M250 117v90M250 117l80 45M250 117l-80 45" stroke="#8d63f5"/></g><circle cx="250" cy="117" r="9" fill="#c68af4"/></svg></div>
-<div class="tool-content"><div><p class="type">EXAMPLES / 3D</p><h2>Augmenta Three.js example</h2><p class="summary">Explore an interactive browser-based integration.</p></div><span class="arrow" aria-hidden="true">↗</span></div>
+<div class="tool-content"><div><p class="type">EXAMPLES / 3D</p><h2>Augmenta Three.js Example</h2><p class="summary">Explore an interactive browser-based integration.</p></div><span class="arrow" aria-hidden="true">↗</span></div>
 </a>
 <article class="tool inactive">
 <div class="art"><svg viewBox="0 0 500 220" role="img" aria-label="MCP integration illustration"><g stroke="#9567c5" stroke-width="4" stroke-linecap="round"><path d="M138 112h66M296 112h66M250 70V37M250 155v32M205 78l-39-34M295 78l39-34M205 146l-39 33M295 146l39 33"/></g><g fill="#1d172a" stroke="#ad79e9" stroke-width="3"><rect x="205" y="70" width="90" height="85" rx="20"/><circle cx="138" cy="112" r="15"/><circle cx="362" cy="112" r="15"/><circle cx="250" cy="32" r="13"/><circle cx="250" cy="191" r="13"/></g><path d="M233 112h34" stroke="#c594ee" stroke-width="5" stroke-linecap="round"/></svg></div>
-<div class="tool-content"><div><p class="type">AI / INTEGRATIONS</p><h2>Augmenta MCP server</h2><p class="summary">Connect agent workflows to Augmenta.</p></div><span class="soon">COMING SOON</span></div>
+<div class="tool-content"><div><p class="type">AI / INTEGRATIONS</p><h2>Augmenta MCP Server</h2><p class="summary">Connect agent workflows to Augmenta.</p></div><span class="soon">COMING SOON</span></div>
 </article>
 </section>
 </main>

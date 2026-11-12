@@ -1,0 +1,32 @@
+{
+  "name": "augmenta-tools",
+  "version": "1.0.0",
+  "description": "Central entry point for [tools.augmenta.tech](https://tools.augmenta.tech/).",
+  "scripts": {
+    "test": "node --test",
+    "build": "node scripts/site.mjs",
+    "preview": "node scripts/serve.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Augmenta-tech/Augmenta-tools.git"
+  },
+  "keywords": [],
+  "license": "UNLICENSED",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/Augmenta-tech/Augmenta-tools/issues"
+  },
+  "homepage": "https://github.com/Augmenta-tech/Augmenta-tools#readme",
+  "dependencies": {
+    "basic-ftp": "6.2.6"
+  },
+  "devDependencies": {
+    "linkedom": "0.18.15",
+    "yaml": "2.9.1"
+  },
+  "private": true,
+  "engines": {
+    "node": ">=24 <25"
+  }
+}

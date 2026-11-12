@@ -1,0 +1,64 @@
+name: Validate and deploy homepage
+
+on:
+  push:
+    branches: ['**']
+    tags: ['**']
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    outputs:
+      channel: ${{ steps.release.outputs.channel }}
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: '24'
+          package-manager-cache: false
+      - run: npm ci --ignore-scripts
+      - run: npm test
+      - run: npm audit --omit=dev --audit-level=high
+      - id: release
+        run: node scripts/release.mjs
+
+  deploy:
+    needs: validate
+    if: github.event_name == 'push' && github.ref_type == 'tag'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment:
+      name: ${{ needs.validate.outputs.channel }}
+      url: ${{ vars.SITE_URL }}
+    concurrency:
+      group: homepage-${{ needs.validate.outputs.channel }}
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: '24'
+          package-manager-cache: false
+      - run: npm ci --ignore-scripts --omit=dev
+      - name: Build allowlisted release
+        run: npm run build
+        env:
+          RELEASE_TAG: ${{ github.ref_name }}
+      - name: Upload through verified FTPS and verify public HTTPS
+        run: node scripts/deploy.mjs
+        env:
+          RELEASE_TAG: ${{ github.ref_name }}
+          FTP_HOST: ${{ vars.FTP_HOST }}
+          FTP_USER: ${{ vars.FTP_USER }}
+          FTP_REMOTE_DIR: ${{ vars.FTP_REMOTE_DIR }}
+          SITE_URL: ${{ vars.SITE_URL }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
