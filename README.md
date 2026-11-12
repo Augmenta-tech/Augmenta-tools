@@ -6,6 +6,10 @@ Central entry point for [tools.augmenta.tech](https://tools.augmenta.tech/).
 
 The public repository has been created. Import of the approved homepage, existing tests and workflows is pending receipt of `Augmenta-tools-ready-for-Work.zip`. No homepage release has been deployed from this repository.
 
+The `beta` and `stable` GitHub environments have been created. Beta permits beta-style tags. Stable requires approval from the repository owner and disables administrator bypass. Environment tag filters are not exact version validators; CI must enforce the release formats described below.
+
+Hosting configuration, deployment credentials and public HTTPS verification remain prerequisites. No CI workflows, tests or release tags have been imported yet.
+
 ## Architecture
 
 This repository owns the tools homepage and its dedicated static assets. It links to independently maintained applications; it does not aggregate their source code or take ownership of their deployments.
