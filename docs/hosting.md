@@ -4,6 +4,8 @@ Hosting account names, absolute server paths and credentials belong in environme
 
 Each website needs a separate document root and FTP account jailed to it. The uploader requires working directory `/` and `FTP_REMOTE_DIR=/`. A hosting-managed link in production points to the independent Factory Audit deployment. Do not move that application, follow its link in the uploader, or change its deployment account.
 
+Production owns a separate, hosting-managed `.htaccess` file. It retains the reviewed Audit and Factory Audit access rules and adds only the homepage exceptions below. Both application directories link to their independently maintained deployment locations. Do not link the homepage's `.htaccess` to the application publisher's root configuration: that publisher validates and replaces its own rules independently. New application URL patterns or security-rule changes must be reviewed and carried into the homepage root's rules through hosting administration; application release files continue to update through their existing links.
+
 ## Homepage route allowlist
 
 The FTPS workflow **never uploads `.htaccess`**. Configure homepage routes through the hosting administrator interface. Keep existing application and certificate-validation rules. Add these paths before the existing deny-all rule:
